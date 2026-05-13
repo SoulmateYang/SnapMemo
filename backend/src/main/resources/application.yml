@@ -17,7 +17,7 @@ server:
   port: 8090
 
 ai:
-  api-key: ${AI_API_KEY:sk-17ec0f761759477ab237c75880d7854c}
+  api-key: ${AI_API_KEY:your-api-key}
   api-url: ${AI_API_URL:https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions}
   model: ${AI_MODEL:qvq-max-2025-03-25}
   connect-timeout-ms: 5000
