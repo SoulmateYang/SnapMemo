@@ -1,0 +1,17 @@
+com\aibrief\mapper\BriefingMapper.class
+com\aibrief\AiBriefingApplication.class
+com\aibrief\model\NewsSource.class
+com\aibrief\config\GlobalExceptionHandler.class
+com\aibrief\service\BriefingService.class
+com\aibrief\config\WebConfig.class
+com\aibrief\controller\BriefingController.class
+com\aibrief\mapper\NewsSourceMapper.class
+com\aibrief\service\AISummarizerService$SummaryResult.class
+com\aibrief\service\AISummarizerService.class
+com\aibrief\model\Briefing.class
+com\aibrief\model\BriefingItem.class
+com\aibrief\service\NewsFetcherService.class
+com\aibrief\service\NewsFetcherService$NewsItem.class
+com\aibrief\model\Briefing$BriefingStatus.class
+com\aibrief\scheduler\BriefingScheduler.class
+com\aibrief\mapper\BriefingItemMapper.class

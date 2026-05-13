@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aibrief.mapper.NewsSourceMapper">
+
+    <select id="findAll" resultType="com.aibrief.model.NewsSource">
+        SELECT id, name, type, url, keywords, enabled, max_items, created_at FROM news_source
+    </select>
+
+    <select id="findByEnabledTrue" resultType="com.aibrief.model.NewsSource">
+        SELECT id, name, type, url, keywords, enabled, max_items, created_at
+        FROM news_source WHERE enabled = true
+    </select>
+
+    <select id="findById" resultType="com.aibrief.model.NewsSource">
+        SELECT id, name, type, url, keywords, enabled, max_items, created_at
+        FROM news_source WHERE id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO news_source (name, type, url, keywords, enabled, max_items)
+        VALUES (#{name}, #{type}, #{url}, #{keywords}, #{enabled}, #{maxItems})
+    </insert>
+
+    <update id="update">
+        UPDATE news_source SET name=#{name}, type=#{type}, url=#{url},
+            keywords=#{keywords}, enabled=#{enabled}, max_items=#{maxItems}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM news_source WHERE id=#{id}
+    </delete>
+
+</mapper>

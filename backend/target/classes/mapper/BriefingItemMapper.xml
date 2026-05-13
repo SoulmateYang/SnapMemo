@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aibrief.mapper.BriefingItemMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO briefing_item (briefing_id, title, url, source, original_content, ai_summary, importance_score)
+        VALUES (#{briefingId}, #{title}, #{url}, #{source}, #{originalContent}, #{aiSummary}, #{importanceScore})
+    </insert>
+
+    <select id="findByBriefingId" resultType="com.aibrief.model.BriefingItem">
+        SELECT * FROM briefing_item WHERE briefing_id = #{briefingId}
+    </select>
+
+</mapper>

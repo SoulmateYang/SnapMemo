@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aibrief.mapper.BriefingMapper">
+
+    <resultMap id="briefingMap" type="com.aibrief.model.Briefing">
+        <id property="id" column="id"/>
+        <result property="date" column="date"/>
+        <result property="title" column="title"/>
+        <result property="summary" column="summary"/>
+        <result property="status" column="status"
+                typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+
+    <resultMap id="briefingWithItemsMap" type="com.aibrief.model.Briefing" extends="briefingMap">
+        <collection property="items" ofType="com.aibrief.model.BriefingItem">
+            <id property="id" column="item_id"/>
+            <result property="briefingId" column="briefing_id"/>
+            <result property="title" column="item_title"/>
+            <result property="url" column="url"/>
+            <result property="source" column="source"/>
+            <result property="originalContent" column="original_content"/>
+            <result property="aiSummary" column="ai_summary"/>
+            <result property="importanceScore" column="importance_score"/>
+            <result property="createdAt" column="item_created_at"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="briefingMap">
+        SELECT id, date, title, summary, status, created_at
+        FROM briefing ORDER BY date DESC LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countAll" resultType="long">
+        SELECT COUNT(*) FROM briefing
+    </select>
+
+    <select id="findById" resultMap="briefingWithItemsMap">
+        SELECT b.id, b.date, b.title, b.summary, b.status, b.created_at,
+               i.id AS item_id, i.briefing_id, i.title AS item_title, i.url, i.source,
+               i.original_content, i.ai_summary, i.importance_score, i.created_at AS item_created_at
+        FROM briefing b
+        LEFT JOIN briefing_item i ON i.briefing_id = b.id
+        WHERE b.id = #{id}
+    </select>
+
+    <select id="findByDate" resultMap="briefingMap">
+        SELECT id, date, title, summary, status, created_at
+        FROM briefing WHERE date = #{date}
+    </select>
+
+    <select id="findByDateWithItems" resultMap="briefingWithItemsMap">
+        SELECT b.id, b.date, b.title, b.summary, b.status, b.created_at,
+               i.id AS item_id, i.briefing_id, i.title AS item_title, i.url, i.source,
+               i.original_content, i.ai_summary, i.importance_score, i.created_at AS item_created_at
+        FROM briefing b
+        LEFT JOIN briefing_item i ON i.briefing_id = b.id
+        WHERE b.date = #{date}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO briefing (date, title, summary, status)
+        VALUES (#{date}, #{title}, #{summary}, #{status})
+    </insert>
+
+    <update id="update">
+        UPDATE briefing SET title=#{title}, summary=#{summary}, status=#{status}
+        WHERE id=#{id}
+    </update>
+
+</mapper>

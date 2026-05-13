@@ -1,0 +1,14 @@
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\mapper\NewsSourceMapper.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\scheduler\BriefingScheduler.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\mapper\BriefingMapper.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\mapper\BriefingItemMapper.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\config\GlobalExceptionHandler.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\controller\BriefingController.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\model\NewsSource.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\AiBriefingApplication.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\model\Briefing.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\service\BriefingService.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\config\WebConfig.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\model\BriefingItem.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\service\NewsFetcherService.java
+D:\work\projectTest\first-claude-project\backend\src\main\java\com\aibrief\service\AISummarizerService.java

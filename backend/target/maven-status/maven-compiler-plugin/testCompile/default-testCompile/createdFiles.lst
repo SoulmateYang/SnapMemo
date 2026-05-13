@@ -1,0 +1,4 @@
+com\aibrief\service\NewsFetcherServiceTest.class
+com\aibrief\service\BriefingServiceTest.class
+com\aibrief\service\AISummarizerServiceTest.class
+com\aibrief\controller\BriefingControllerTest.class
